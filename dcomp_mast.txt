@@ -1,0 +1,88 @@
+﻿theSql = ("SELECT * FROM dcomp_mast WHERE left(catid,4)='"&thisCatID&"' and rvwstatus='FINAL' ")
+--
+-- Database: `dbddemo`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dcomp_mast`
+--
+
+CREATE TABLE IF NOT EXISTS `dcomp_mast` (
+  `id` smallint(4) NOT NULL,
+  `compID` varchar(10) NOT NULL DEFAULT 'NA',
+  `ctitle` varchar(20) NOT NULL DEFAULT 'NA',
+  `fName` varchar(50) NOT NULL DEFAULT 'NA',
+  `lName` varchar(50) NOT NULL DEFAULT 'NA',
+  `emAdd` varchar(150) NOT NULL DEFAULT 'NA',
+  `phone` varchar(20) NOT NULL DEFAULT 'NA',
+  `compname` varchar(100) NOT NULL DEFAULT 'NA',
+  `country` varchar(50) NOT NULL DEFAULT 'NA',
+  `capacity` mediumint(4) NOT NULL DEFAULT '0',
+  `website` varchar(255) NOT NULL DEFAULT 'NA',
+  `compProfile` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `brfProfile` text NOT NULL,
+  `rawProfile` text NOT NULL,
+  `logoPath` varchar(150) NOT NULL DEFAULT 'NA',
+  `logoImg` varchar(150) NOT NULL DEFAULT 'NA',
+  `scrnShotPath` varchar(150) NOT NULL DEFAULT 'NA',
+  `scrnShotImg` varchar(150) NOT NULL DEFAULT 'NA',
+  `catID` varchar(10) NOT NULL DEFAULT 'NA',
+  `sCatId` varchar(15) NOT NULL DEFAULT 'NA',
+  `pCompID` int(7) NOT NULL DEFAULT '0' COMMENT 'compId of Parent',
+  `forMailer` varchar(10) NOT NULL DEFAULT 'NO',
+  `mlrDate` date NOT NULL,
+  `busType` varchar(20) NOT NULL DEFAULT 'Manufacturer' COMMENT 'Manufacturer, Trader',
+  `dciMember` varchar(10) NOT NULL DEFAULT 'NA',
+  `verCode` varchar(10) NOT NULL,
+  `tableStatus` varchar(15) NOT NULL DEFAULT 'PREMASTER',
+  `rvwStatus` varchar(10) NOT NULL DEFAULT 'TOPROCESS',
+  `compStatus` varchar(10) NOT NULL DEFAULT 'SHOW',
+  `userIp` varchar(20) NOT NULL DEFAULT 'NA',
+  `sessnId` varchar(30) NOT NULL DEFAULT 'NA',
+  `addedby` varchar(150) NOT NULL DEFAULT 'NA',
+  `addedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `editedBy` varchar(30) NOT NULL DEFAULT 'NA',
+  `editedOn` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `inclinDir` varchar(4) NOT NULL DEFAULT 'NO',
+  `inAdrs` varchar(4) NOT NULL DEFAULT 'NO',
+  `verStatus` varchar(20) NOT NULL DEFAULT 'UNVERIFIED',
+  `segPgNo` int(7) NOT NULL DEFAULT '0',
+  `inPrint` varchar(4) NOT NULL DEFAULT 'NO'
+) ENGINE=InnoDB AUTO_INCREMENT=1984 DEFAULT CHARSET=latin1;
+
+--
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `dcomp_mast`
+--
+ALTER TABLE `dcomp_mast`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `compname_2` (`compname`),
+  ADD KEY `country` (`country`),
+  ADD KEY `capacity` (`capacity`),
+  ADD KEY `catID` (`catID`),
+  ADD KEY `compStatus` (`compStatus`),
+  ADD KEY `fName` (`fName`,`lName`,`emAdd`),
+  ADD KEY `dciMember` (`dciMember`,`rvwStatus`),
+  ADD KEY `forMailer` (`forMailer`),
+  ADD KEY `mlrDate` (`mlrDate`),
+  ADD KEY `tableStatus` (`tableStatus`),
+  ADD KEY `pCompID` (`pCompID`),
+  ADD KEY `inclinDir` (`inclinDir`),
+  ADD KEY `verStatus` (`verStatus`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `dcomp_mast`
+--
+ALTER TABLE `dcomp_mast`
+  MODIFY `id` smallint(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1984;

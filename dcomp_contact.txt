@@ -1,0 +1,47 @@
+﻿
+theSql = "SELECT * FROM dcomp_contact WHERE exetype='CONTACT' AND compID="&thisCompID
+
+--
+-- Table structure for table `dcomp_contact`
+--
+
+CREATE TABLE IF NOT EXISTS `dcomp_contact` (
+  `Id` smallint(4) NOT NULL,
+  `compId` smallint(4) NOT NULL,
+  `vc_segment` varchar(10) NOT NULL DEFAULT 'NA',
+  `adrsId` int(7) NOT NULL DEFAULT '0',
+  `cTitle` varchar(10) NOT NULL COMMENT 'title',
+  `fName` varchar(50) NOT NULL COMMENT 'first name',
+  `lName` varchar(50) NOT NULL COMMENT 'last name',
+  `desig` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `altEmail` varchar(150) NOT NULL DEFAULT 'NA',
+  `phone` varchar(50) NOT NULL DEFAULT 'NA',
+  `altPhone` varchar(30) NOT NULL DEFAULT 'NA',
+  `city` varchar(50) NOT NULL DEFAULT 'NA',
+  `country` varchar(75) NOT NULL DEFAULT 'NA',
+  `exetype` varchar(20) NOT NULL DEFAULT 'NA',
+  `contStatus` varchar(20) NOT NULL DEFAULT 'HIDE',
+  `recStatus` varchar(10) NOT NULL DEFAULT 'INPROCESS',
+  `source` varchar(20) NOT NULL DEFAULT 'NA',
+  `unqCode` varchar(15) NOT NULL DEFAULT 'NA',
+  `senderEml` varchar(100) NOT NULL DEFAULT 'NA',
+  `addedBy` varchar(30) NOT NULL DEFAULT 'NA',
+  `addedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `editedBy` varchar(30) NOT NULL DEFAULT 'NA',
+  `editedOn` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mlrSent` varchar(4) NOT NULL DEFAULT 'NO',
+  `emlStat` varchar(20) NOT NULL DEFAULT 'NA',
+  `importance` varchar(10) NOT NULL DEFAULT 'NA',
+  `printOn` varchar(15) NOT NULL DEFAULT 'NA',
+  `inclinDir` varchar(4) NOT NULL DEFAULT 'NO',
+  `verStatus` varchar(15) NOT NULL DEFAULT 'UNVERIFIED',
+  `updtStatus` varchar(15) NOT NULL DEFAULT 'NA',
+  `verEmail` varchar(10) NOT NULL DEFAULT 'NO',
+  `verEmailResp` varchar(10) NOT NULL DEFAULT 'NA',
+  `inPrint` varchar(4) NOT NULL DEFAULT 'NO'
+) ENGINE=InnoDB AUTO_INCREMENT=2345 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dcomp_contact`
+--

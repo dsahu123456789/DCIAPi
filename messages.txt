@@ -1,0 +1,53 @@
+﻿theSql = "SELECT * FROM messages where wShowHide = 'SHOW' order by dispOrder asc, wNameFirst asc, wNameLast asc"
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` smallint(6) NOT NULL,
+  `wTitle` varchar(10) NOT NULL,
+  `wNameFirst` varchar(40) NOT NULL,
+  `wNameLast` varchar(40) NOT NULL,
+  `wDesig` varchar(100) NOT NULL,
+  `wComp` varchar(120) NOT NULL,
+  `briefMsg` text NOT NULL,
+  `vc_segment` varchar(20) NOT NULL,
+  `wCountry` varchar(30) NOT NULL,
+  `fullMsg` text NOT NULL,
+  `wImgFile` varchar(100) NOT NULL,
+  `mImgFile` varchar(100) NOT NULL,
+  `pStatus` varchar(20) NOT NULL DEFAULT 'YET2RECEIVE',
+  `rvwStatus` varchar(10) NOT NULL DEFAULT 'NA',
+  `wShowHide` varchar(10) NOT NULL DEFAULT 'SHOW',
+  `wFeatured` varchar(4) NOT NULL DEFAULT 'NO',
+  `emlSentOn` date NOT NULL DEFAULT '0000-00-00',
+  `dispOrder` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `wFeatured` (`wFeatured`),
+  ADD KEY `wNameFirst` (`wNameFirst`),
+  ADD KEY `wNameLast` (`wNameLast`),
+  ADD KEY `vc_segment` (`vc_segment`),
+  ADD KEY `wCountry` (`wCountry`),
+  ADD KEY `wNameFirst_2` (`wNameFirst`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;

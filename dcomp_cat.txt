@@ -1,0 +1,55 @@
+﻿SELECT id, catId, segment FROM `dcomp_cat` WHERE segment <> 'NA' order by dispOrd asc
+
+--
+-- Table structure for table `dcomp_cat`
+--
+
+CREATE TABLE IF NOT EXISTS `dcomp_cat` (
+  `id` int(5) NOT NULL,
+  `catId` varchar(10) NOT NULL DEFAULT 'NA',
+  `segment` varchar(40) NOT NULL DEFAULT 'NA',
+  `category` varchar(40) NOT NULL DEFAULT 'NA',
+  `repBy1` varchar(10) NOT NULL DEFAULT '0',
+  `repBy2` varchar(10) NOT NULL DEFAULT '0',
+  `repBy3` varchar(10) NOT NULL DEFAULT '0',
+  `cntComp` smallint(6) NOT NULL DEFAULT '0',
+  `intro` varchar(255) NOT NULL COMMENT 'brief intro of category',
+  `descr` text NOT NULL COMMENT 'description of categorry',
+  `parent` varchar(10) NOT NULL DEFAULT 'NA',
+  `dispOrd` mediumint(4) NOT NULL DEFAULT '0',
+  `segShortNm` varchar(20) NOT NULL,
+  `cat_imgPath` varchar(100) NOT NULL DEFAULT 'NA',
+  `cat_imgFile` varchar(100) NOT NULL DEFAULT 'NA',
+  `cms_pid` tinyint(4) NOT NULL,
+  `catStatus` varchar(4) NOT NULL DEFAULT 'SHOW',
+  `addedBy` varchar(30) NOT NULL DEFAULT 'NA',
+  `addedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `editedBy` varchar(30) NOT NULL DEFAULT 'NA',
+  `editedOn` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `segOrd` int(7) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `dcomp_cat`
+--
+ALTER TABLE `dcomp_cat`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `catId` (`catId`),
+  ADD KEY `dispOrd` (`dispOrd`),
+  ADD KEY `addedBy` (`addedBy`,`addedOn`,`editedBy`,`editedOn`),
+  ADD KEY `cat_imgFile` (`cat_imgFile`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `dcomp_cat`
+--
+ALTER TABLE `dcomp_cat`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;

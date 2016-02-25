@@ -1,0 +1,54 @@
+﻿
+mysqli_query($con,"SELECT xxx, yyy, zzz FROM whoswho where pStatus='RECEIVED' ");
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `whoswho`
+--
+
+CREATE TABLE IF NOT EXISTS `whoswho` (
+`id` smallint(6) NOT NULL,
+  `wTitle` varchar(10) NOT NULL,
+  `wNameFirst` varchar(40) NOT NULL,
+  `wNameLast` varchar(40) NOT NULL,
+  `wDesig` varchar(100) NOT NULL,
+  `wComp` varchar(120) NOT NULL,
+  `wEmadd` varchar(150) NOT NULL DEFAULT 'NA',
+  `wPhone` varchar(30) NOT NULL DEFAULT 'NA',
+  `wHphone` varchar(20) NOT NULL DEFAULT 'NA',
+  `wRemarks` text NOT NULL,
+  `vc_segment` varchar(20) NOT NULL,
+  `wCountry` varchar(30) NOT NULL,
+  `wBioProf` text NOT NULL,
+  `wImgFile` varchar(100) NOT NULL,
+  `pStatus` varchar(20) NOT NULL DEFAULT 'YET2RECEIVE',
+  `rvwStatus` varchar(10) NOT NULL DEFAULT 'NA',
+  `wShowHide` varchar(10) NOT NULL DEFAULT 'SHOW',
+  `wFeatured` varchar(4) NOT NULL DEFAULT 'NO',
+  `emlSentOn` date NOT NULL DEFAULT '0000-00-00'
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=288 ;
+
+--
+-- Dumping data for table `whoswho`
+--
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `whoswho`
+--
+ALTER TABLE `whoswho`
+ ADD PRIMARY KEY (`id`), ADD KEY `wFeatured` (`wFeatured`), ADD KEY `wNameFirst` (`wNameFirst`), ADD KEY `wNameLast` (`wNameLast`), ADD KEY `vc_segment` (`vc_segment`), ADD KEY `wCountry` (`wCountry`), ADD KEY `wNameFirst_2` (`wNameFirst`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `whoswho`
+--
+ALTER TABLE `whoswho`
+MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=288;
